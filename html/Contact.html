@@ -16,7 +16,47 @@
             </nav>
         </header>
         <main>
+            <section>
+                <fieldset name="Vos informations" id="informations">
+                    <legend>Vos informations</legend>
+                    <form method="post" name="Quiz" action="#" class="box" id="QuizId" onsubmit="return false">
 
+                        <div>
+                            <label for="nom">Nom :</label>
+                            <input type="text" name="nom" id="nom">
+                        </div>
+                        <div>
+                            <label for="prenom">Prénom :</label>
+                            <input type="text" name="prenom" id="prenom">
+                        </div>
+                        <div>
+                            <label for="date">Date de naissance :</label>
+                            <input type = "date" name="date" id="date">
+                        </div>
+                        <div>
+                            <label for="mail">Adresse mail :</label>
+                            <input type="email" name="mail" id="mail">
+                        </div>
+                        <div>
+                            <label for="genre">genre :</label>
+                            <select name="genre" id="genre">
+                                <option value="">Choisissez un genre</option>
+                                <option value="Homme">Homme</option>
+                                <option value="Femme">Femme</option>
+                            </select>
+                            <p>Donnez-nous un commentaire : </p>
+                            <textarea id="exemple" name="exemple"></textarea><label for="exemple"></label>
+                        </div>
+                        <div>
+                            <input type= "button" value =" envoyer " class="button" id="envoyer" onclick=""><label for="envoyer"></label>
+                        </div>
+
+                    </form>
+                </fieldset>
+            </section>
+            <section>
+                <p>merci le fratelo pour ton contact !!</p>
+            </section>
         </main>
         <footer>
             <p>©️2026 Mark RABEMANANTSOA - Lucas DAUGAN<br>
