@@ -1,37 +1,106 @@
 
+body{
+    font-size: 16px;
+    text-align: center;
+}
+
+footer{
+    color: white;
+    background-color: #7a2aff;
+    padding: 1%;
+    margin: 2% 0 0 0;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
 nav {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: #4c14a8;
+    background: #7a2aff;
+    padding: 6px 12px;
+    margin: 0 5% 0 5%;
+    border-radius: 20px;
 }
 
-nav a{
-    color: white;
+nav a {
+    font-size: 18px;
+    color: #fff;
     text-decoration: none;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-    border-radius: 10px;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s;
+    position: relative;
 }
 
-nav a:hover{
-    background-color: lightgray;
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: width 0.2s;
 }
 
+nav a:hover {
+    color: #fff;
+    background-color: #531fb1
+}
 
+nav a:hover::after {
+    width: 60%;
+}
+
+nav a.active {
+    color: #fff;
+}
+
+nav a.active::after {
+    width: 60%;
+}
+
+.bouton{
+    text-decoration: none;
+    color: #fff;
+    background-color: #7a2aff;
+    padding: 10px;
+    border-radius: 15px;
+    transition: 0.2s;
+}
+
+.bouton:hover{
+    background-color: #531fb1;
+    font-size: large;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e7e4fa;
+    margin: 1% 5% 0 5%;
+    padding: 2%;
+    border-radius: 20px;
+}
 
 #chat-section{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #DAEAD8;
+    background-color: #ffffff;
 }
 
 .chat-container{
-    background-color: #2b2929;
-    width: 60%;
+    background-color: #e7e4fa;
+    width: 70%;
     border-radius: 10px;
     border: #535050 solid 1px;
 }
