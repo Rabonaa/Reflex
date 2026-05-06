@@ -1,74 +1,69 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>Reflex - Contact</title>
-        <link rel="stylesheet" href="../css/styles.css">
-        <script src="../js/script.js" async></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <header>
-            <nav>
-                <a href="Accueil.html">Accueil</a>
-                <a href="Articles.html">Articles</a>
-                <a href="Contact.html">Contact</a>
-                <a href="Apropos.html">A propos</a>
-            </nav>
-        </header>
-        <main>
+<head>
+    <meta charset="UTF-8">
+    <title>Reflex - Contact</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script.js" async></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="Accueil.html">Accueil</a>
+        <a href="Articles.html">Articles</a>
+        <a href="Contact.html" class="active">Contact</a>
+        <a href="Apropos.html">A propos</a>
+    </nav>
+</header>
+<main>
+    <div>
+        <form class="formulaire">
+            <fieldset name="Vos informations" id="informations">
+                <legend>Vos informations</legend>
+                <div id="container-genre">
+                    <label for="genre">Genre :</label>
+                    <select name="genre" id="genre">
+                        <option value="">Choisissez un genre</option>
+                        <option value="Homme">Homme</option>
+                        <option value="Femme">Femme</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="nom">Nom :</label>
+                    <input type="text" name="nom" id="nom">
+                </div>
+                <div>
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" name="prenom" id="prenom">
+                </div>
+                <div>
+                    <label for="date">Date de naissance :</label>
+                    <input type = "date" name="date" id="date">
+                </div>
+                <div id="adresse-mail">
+                    <label for="mail">Adresse mail :</label>
+                    <input type="email" name="mail" id="mail">
+                </div>
+                <div>
+                    <p>Donnez-nous un commentaire : </p>
+                    <textarea id="exemple" name="exemple"></textarea><label for="exemple"></label>
+                </div>
+                <div id="bouton-formulaire">
+                    <button type="submit" class="bouton">Envoyer</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
 
-            <div>
-                <form class="formulaire">
-                    <fieldset name="Vos informations" id="informations">
-                        <legend>Vos informations</legend>
-                        <div id="container-genre">
-                            <label for="genre">Genre :</label>
-                            <select name="genre" id="genre">
-                                <option value="">Choisissez un genre</option>
-                                <option value="Homme">Homme</option>
-                                <option value="Femme">Femme</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label for="nom">Nom :</label>
-                            <input type="text" name="nom" id="nom">
-                        </div>
-                        <div>
-                            <label for="prenom">Prénom :</label>
-                            <input type="text" name="prenom" id="prenom">
-                        </div>
-                        <div>
-                            <label for="date">Date de naissance :</label>
-                            <input type = "date" name="date" id="date">
-                        </div>
-                        <div id="adresse-mail">
-                            <label for="mail">Adresse mail :</label>
-                            <input type="email" name="mail" id="mail">
-                        </div>
-                        <div>
-                            <p>Donnez-nous un commentaire : </p>
-                            <textarea id="exemple" name="exemple"></textarea><label for="exemple"></label>
-                        </div>
-                        <div id="bouton-formulaire">
-                            <button type="submit" class="bouton">Envoyer</button>
-                        </div>
-
-                    </fieldset>
-                </form>
-            </div>
-
-            <div class="post-form">
-
-                <p>merci le fratelo pour ton contact !!</p>
-            </div>
-            </section>
-        </main>
-        <footer>
-            <p>© 2026 Mark RABEMANANTSOA - Lucas DAUGAN<br>
-                Tous droits réservés.</p>
-            <a href="Apropos.html">En savoir plus ?</a>
-        </footer>
-    </body>
+    <div class="post-form">
+        <p>merci le fratelo pour ton contact !!</p>
+    </div>
+</main>
+<footer>
+    <p>© 2026 Mark RABEMANANTSOA - Lucas DAUGAN<br>
+        Tous droits réservés.</p>
+    <a href="Apropos.html">En savoir plus ?</a>
+</footer>
+</body>
 </html>
