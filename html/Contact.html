@@ -5,6 +5,7 @@
         <title>Reflex - Contact</title>
         <link rel="stylesheet" href="../css/styles.css">
         <script src="../js/script.js" async></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <header>
@@ -17,10 +18,17 @@
         </header>
         <main>
             <div>
-                <fieldset name="Vos informations" id="informations">
-                    <legend>Vos informations</legend>
-                    <form method="post" name="Quiz" action="#" class="box" id="QuizId" onsubmit="return false">
-
+                <form class="formulaire">
+                    <fieldset name="Vos informations" id="informations">
+                        <legend>Vos informations</legend>
+                        <div id="container-genre">
+                            <label for="genre">Genre :</label>
+                            <select name="genre" id="genre">
+                                <option value="">Choisissez un genre</option>
+                                <option value="Homme">Homme</option>
+                                <option value="Femme">Femme</option>
+                            </select>
+                        </div>
                         <div>
                             <label for="nom">Nom :</label>
                             <input type="text" name="nom" id="nom">
@@ -33,36 +41,29 @@
                             <label for="date">Date de naissance :</label>
                             <input type = "date" name="date" id="date">
                         </div>
-                        <div>
+                        <div id="adresse-mail">
                             <label for="mail">Adresse mail :</label>
                             <input type="email" name="mail" id="mail">
                         </div>
                         <div>
-                            <label for="genre">genre :</label>
-                            <select name="genre" id="genre">
-                                <option value="">Choisissez un genre</option>
-                                <option value="Homme">Homme</option>
-                                <option value="Femme">Femme</option>
-                            </select>
                             <p>Donnez-nous un commentaire : </p>
                             <textarea id="exemple" name="exemple"></textarea><label for="exemple"></label>
                         </div>
-                        <div>
-                            <input type= "button" value =" envoyer " class="button" id="envoyer" onclick=""><label for="envoyer"></label>
+                        <div id="bouton-formulaire">
+                            <button type="submit" class="bouton">Envoyer</button>
                         </div>
-
-                    </form>
-                </fieldset>
+                    </fieldset>
+                </form>
             </div>
 
-            <div>
+            <div class="post-form">
                 <p>merci le fratelo pour ton contact !!</p>
             </div>
         </main>
         <footer>
-            <p>©️2026 Mark RABEMANANTSOA - Lucas DAUGAN<br>
+            <p>© 2026 Mark RABEMANANTSOA - Lucas DAUGAN<br>
                 Tous droits réservés.</p>
-            <a href="Apropos.html">En savoir plus</a>
+            <a href="Apropos.html">En savoir plus ?</a>
         </footer>
     </body>
 </html>

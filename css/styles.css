@@ -8,7 +8,8 @@ footer{
     color: white;
     background-color: #7a2aff;
     padding: 1%;
-    margin: 2% 0 0 0;
+    margin: 2% 5% 0 5%;
+    border-radius: 15px;
 }
 
 a{
@@ -67,19 +68,20 @@ nav a.active::after {
     width: 60%;
 }
 
-.bouton{
-    text-decoration: none;
-    color: #fff;
-    background-color: #7a2aff;
-    padding: 10px;
-    border-radius: 15px;
-    transition: 0.2s;
-}
+/*.bouton{*/
+/*    text-decoration: none;*/
+/*    color: #fff;*/
+/*    background-color: #7a2aff;*/
+/*    padding: 10px;*/
+/*    border-radius: 15px;*/
+/*    transition: 0.2s;*/
+/*}*/
 
-.bouton:hover{
-    background-color: #531fb1;
-    font-size: large;
-}
+/*.bouton:hover{*/
+/*    background-color: #531fb1;*/
+/*    font-size: large;*/
+/*    cursor: pointer;*/
+/*}*/
 
 .container{
     display: flex;
@@ -128,14 +130,6 @@ nav a.active::after {
 
 #envoi_chat{
     margin-right: 2%;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #4b6ec9;
-    color: white;
-}
-
-#envoi_chat:hover{
-    background-color: #488fff;
 }
 
 .user-mess{
@@ -165,3 +159,84 @@ nav a.active::after {
     max-width: 50%;
     border-radius: 10px;
 }
+
+.formulaire{
+    text-align: left;
+}
+
+.formulaire div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+#container-genre, #container-device{
+    display: flex;
+    flex-direction: row;
+}
+
+#container-device{
+    margin-top: 10px;
+}
+
+.formulaire select{
+    height: 20px;
+}
+
+.formulaire input{
+    height: 25px;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+}
+
+.formulaire textarea{
+    width: 99%;
+    max-height: 500px;
+    resize: vertical;
+    border-radius: 5px;
+}
+
+#adresse-mail{
+    margin-bottom: 0;
+}
+
+#bouton-formulaire{
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-bottom: 0;
+}
+
+button, .bouton{
+    color: white;
+    background-color: #7a2aff;
+    width: auto;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: 0.2s;
+    border: none;
+}
+
+button:hover, .bouton:hover{
+    background-color: #531fb1;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+fieldset{
+    margin-left: 30%;
+    margin-right: 30%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+legend{
+    color: white;
+    background-color: #4b6ec9;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.post-form{
+    display: none;
+}
+
