@@ -24,7 +24,7 @@
                 <legend>Vos informations</legend>
                 <div id="container-genre">
                     <label for="genre">Genre :</label>
-                    <select name="genre" id="genre">
+                    <select name="genre" id="genre" required>
                         <option value="">Choisissez un genre</option>
                         <option value="Homme">Homme</option>
                         <option value="Femme">Femme</option>
@@ -32,23 +32,24 @@
                 </div>
                 <div>
                     <label for="nom">Nom :</label>
-                    <input type="text" name="nom" id="nom">
+                    <input type="text" name="nom" id="nom" required>
                 </div>
                 <div>
                     <label for="prenom">Prénom :</label>
-                    <input type="text" name="prenom" id="prenom">
+                    <input type="text" name="prenom" id="prenom" required>
                 </div>
                 <div>
                     <label for="date">Date de naissance :</label>
-                    <input type = "date" name="date" id="date">
+                    <input type = "date" name="date" id="date" required>
                 </div>
                 <div id="adresse-mail">
                     <label for="mail">Adresse mail :</label>
-                    <input type="email" name="mail" id="mail">
+                    <input type="email" name="mail" id="mail" required>
                 </div>
                 <div id="container-device">
                     <label for="device">Appareil utilisé : </label>
-                    <select id="device">
+                    <select id="device" name="device" required>
+                        <option value="">Veuillez choisir un appareil</option>
                         <option value="option1">Ordinateur</option>
                         <option value="option2">Téléphone</option>
                         <option value="option3">Tablette</option>
@@ -61,14 +62,14 @@
         </form>
     </div>
 
-    <div>
+    <div class="score">
         <img src="" alt="">
         <p>Temps moyen par cible : </p>
         <p>000</p>
         <p>Bien joué !</p>
         <button >Mon Score</button>
         <button >Rejouer</button>
-        <div>
+        <div class="instructions">
             <h3>Instructions</h3>
             <p>Cliquer sur la cible le plus vite possible. <br>Cette épreuve teste vos réflexes et votre coordination. <br>Après 30 cibles atteints, l'épreuve se termine. Vous pourriez ensuite voir votre score ou rejouer.</p>
         </div>

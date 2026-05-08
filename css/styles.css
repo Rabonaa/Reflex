@@ -68,21 +68,6 @@ nav a.active::after {
     width: 60%;
 }
 
-/*.bouton{*/
-/*    text-decoration: none;*/
-/*    color: #fff;*/
-/*    background-color: #7a2aff;*/
-/*    padding: 10px;*/
-/*    border-radius: 15px;*/
-/*    transition: 0.2s;*/
-/*}*/
-
-/*.bouton:hover{*/
-/*    background-color: #531fb1;*/
-/*    font-size: large;*/
-/*    cursor: pointer;*/
-/*}*/
-
 .container{
     display: flex;
     flex-direction: column;
@@ -197,10 +182,6 @@ nav a.active::after {
     border-radius: 5px;
 }
 
-#adresse-mail{
-    margin-bottom: 0;
-}
-
 #bouton-formulaire{
     flex-direction: row;
     justify-content: flex-end;
@@ -277,10 +258,10 @@ thead tr th{
     padding:5px;
 }
 
-tbody tr:nth-child(even){
+tbody tr{
     background-color: #fff4e0;
 }
 
-tbody tr:nth-child(odd){
-    background-color: #fff4e0;
+.score, .instructions{
+    display: none;
 }

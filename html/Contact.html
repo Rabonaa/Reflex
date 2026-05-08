@@ -23,7 +23,7 @@
                 <legend>Vos informations</legend>
                 <div id="container-genre">
                     <label for="genre">Genre :</label>
-                    <select name="genre" id="genre">
+                    <select name="genre" id="genre" required>
                         <option value="">Choisissez un genre</option>
                         <option value="Homme">Homme</option>
                         <option value="Femme">Femme</option>
@@ -31,23 +31,23 @@
                 </div>
                 <div>
                     <label for="nom">Nom :</label>
-                    <input type="text" name="nom" id="nom">
+                    <input type="text" name="nom" id="nom" required>
                 </div>
                 <div>
                     <label for="prenom">Prénom :</label>
-                    <input type="text" name="prenom" id="prenom">
+                    <input type="text" name="prenom" id="prenom" required>
                 </div>
                 <div>
                     <label for="date">Date de naissance :</label>
-                    <input type = "date" name="date" id="date">
+                    <input type = "date" name="date" id="date" required>
                 </div>
                 <div id="adresse-mail">
                     <label for="mail">Adresse mail :</label>
-                    <input type="email" name="mail" id="mail">
+                    <input type="email" name="mail" id="mail" required>
                 </div>
                 <div>
-                    <p>Donnez-nous un commentaire : </p>
-                    <textarea id="exemple" name="exemple"></textarea><label for="exemple"></label>
+                    <label for="exemple">Donnez-nous un commentaire :</label>
+                    <textarea id="exemple" name="exemple"></textarea>
                 </div>
                 <div id="bouton-formulaire">
                     <button type="submit" class="bouton">Envoyer</button>
