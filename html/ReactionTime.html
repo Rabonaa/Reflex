@@ -18,26 +18,34 @@
 
 <main>
     <div>
-        <fieldset>
-            <legend>Vos informations</legend>
-            <form>
-                <div>
-                    <label for="nom">Nom : </label>
-                    <input type="text" id="nom">
+        <form class="formulaire">
+            <fieldset name="Vos informations" id="informations">
+                <legend>Vos informations</legend>
+                <div id="container-genre">
+                    <label for="genre">Genre :</label>
+                    <select name="genre" id="genre">
+                        <option value="">Choisissez un genre</option>
+                        <option value="Homme">Homme</option>
+                        <option value="Femme">Femme</option>
+                    </select>
                 </div>
                 <div>
-                    <label for="prénom">Prénom : </label>
-                    <input type="text" id="prénom">
+                    <label for="nom">Nom :</label>
+                    <input type="text" name="nom" id="nom">
                 </div>
                 <div>
-                    <label for="date">Date de naissance : </label>
-                    <input type="date" id="date">
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" name="prenom" id="prenom">
                 </div>
                 <div>
-                    <label for="mail">Adresse mail : </label>
-                    <input type="email" id="mail">
+                    <label for="date">Date de naissance :</label>
+                    <input type = "date" name="date" id="date">
                 </div>
-                <div>
+                <div id="adresse-mail">
+                    <label for="mail">Adresse mail :</label>
+                    <input type="email" name="mail" id="mail">
+                </div>
+                <div id="container-device">
                     <label for="device">Appareil utilisé : </label>
                     <select id="device">
                         <option value="option1">Ordinateur</option>
@@ -45,8 +53,11 @@
                         <option value="option3">Tablette</option>
                     </select>
                 </div>
-            </form>
-        </fieldset>
+                <div id="bouton-formulaire">
+                    <button type="submit" class="bouton">Envoyer</button>
+                </div>
+            </fieldset>
+        </form>
     </div>
 
 
