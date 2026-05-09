@@ -83,7 +83,6 @@ nav a.active::after {
     flex-direction: column;
     align-items: center;
     background-color: #ffffff;
-    display: none;
 }
 
 .chat-container{
