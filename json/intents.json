@@ -1,0 +1,64 @@
+{
+  "intents": [
+    {
+      "tag": "greet",
+      "patterns": ["Bonjour", "Salut", "Coucou", "Hey"],
+      "responses": ["Bonjour ! Je suis ReflexBot. Avez-vous une question sur nos tests, le temps de réaction ou la mémoire musculaire ?"]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Au revoir", "À bientôt", "À la prochaine", "Bye"],
+      "responses": ["À bientôt ! N'hésitez pas à revenir battre vos records sur Reflex !"]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Merci", "Merci beaucoup", "Merci pour votre aide", "Top"],
+      "responses": ["De rien ! C'est un plaisir de vous aider. Bon entraînement !"]
+    },
+    {
+      "tag": "about_reflex",
+      "patterns": ["Qu'est-ce que Reflex ?", "C'est quoi ce site ?", "À quoi sert Reflex ?", "But du site"],
+      "responses": ["Reflex est une plateforme interactive conçue pour tester et analyser vos capacités cognitives et motrices. Nous proposons un test de temps de réaction et un Aim Test pour évaluer votre précision."]
+    },
+    {
+      "tag": "reaction_time_average",
+      "patterns": ["Quel est le temps de réaction moyen ?", "Je suis rapide ?", "Moyenne humaine", "Score moyen", "Combien de millisecondes"],
+      "responses": ["Le temps de réaction visuel moyen chez un adulte en bonne santé se situe autour de 250 ms à 300 ms. Les joueurs professionnels d'e-sport peuvent descendre sous la barre des 200 ms, voire 150 ms !"]
+    },
+    {
+      "tag": "brain_reaction",
+      "patterns": ["Que se passe-t-il dans le cerveau ?", "Comment fonctionne le réflexe ?", "Trajet de l'information"],
+      "responses": ["En une fraction de seconde, vos yeux captent la lumière, le cortex visuel identifie la couleur, puis le cortex moteur envoie un signal électrique le long de votre moelle épinière jusqu'aux muscles de votre main pour cliquer !"]
+    },
+    {
+      "tag": "aim_test_definition",
+      "patterns": ["C'est quoi l'Aim Test ?", "Test de précision", "À quoi sert le test des cibles ?"],
+      "responses": ["L'Aim Test met à l'épreuve votre coordination œil-main et votre mémoire musculaire. Le but est de cliquer sur 30 cibles le plus rapidement et précisément possible."]
+    },
+    {
+      "tag": "muscle_memory",
+      "patterns": ["Qu'est-ce que la mémoire musculaire ?", "Comment améliorer sa précision ?", "S'améliorer à l'Aim Test"],
+      "responses": ["La mémoire musculaire n'est pas dans les muscles, mais dans le cerveau ! C'est la capacité de votre système nerveux à exécuter une tâche motrice sans effort conscient grâce à la répétition (très utile dans l'e-sport ou le tennis)."]
+    },
+    {
+      "tag": "hardware_impact",
+      "patterns": ["Est-ce que l'écran compte ?", "Faut-il une bonne souris ?", "Impact du matériel", "144hz", "Souris gaming"],
+      "responses": ["Le matériel joue un grand rôle ! Un écran avec un haut taux de rafraîchissement (144Hz ou 240Hz) affiche l'image plus vite. De plus, une souris gaming transmet l'information à l'ordinateur beaucoup plus rapidement qu'une souris classique."]
+    },
+    {
+      "tag": "physiological_factors",
+      "patterns": ["Pourquoi je suis lent aujourd'hui ?", "Le sommeil joue-t-il un rôle ?", "Facteurs de performance", "Fatigue", "Caféine"],
+      "responses": ["Vos performances varient selon votre physiologie. Un manque de sommeil ou la déshydratation augmentent drastiquement le temps de réaction. À l'inverse, la caféine peut l'améliorer temporairement."]
+    },
+    {
+      "tag": "age_impact",
+      "patterns": ["L'âge compte-t-il ?", "Je suis trop vieux", "À quel âge est-on le plus rapide ?"],
+      "responses": ["L'âge a un impact. Le temps de réaction humain atteint généralement son pic de rapidité vers l'âge de 24 ans, puis commence à décliner lentement avec le temps."]
+    },
+    {
+      "tag": "fallback",
+      "patterns": [],
+      "responses": ["Je suis désolé, je ne suis pas sûr de comprendre. Pouvez-vous reformuler votre question sur les réflexes, le matériel ou nos tests ?"]
+    }
+  ]
+}

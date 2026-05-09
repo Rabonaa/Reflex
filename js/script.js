@@ -55,3 +55,72 @@ function initForms(){
     });
 }
 initForms();
+
+function fetchJSON(url) {
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (Object.keys(data).length === 0 && data.constructor === Object) {
+                throw new Error('Empty JSON or malformed JSON');
+            }
+            console.log(data);
+            sendMessage(data.intents);
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+}
+
+document.getElementById('envoi_chat').addEventListener('click', function(event){
+    event.preventDefault();
+    fetchJSON('../json/intents.json');
+});
+
+document.getElementById('saisie').addEventListener('keydown', function (e){
+    if(e.key === 'Enter'){
+        e.preventDefault();
+        document.getElementById('envoi_chat').click();
+    }
+});
+
+function processMessage(intents, message) {
+    let response = "Je suis désolé, je ne suis pas sûr de comprendre.";
+
+    intents.forEach(intent => {
+        intent.patterns.forEach(pattern => {
+            if (message.toLowerCase().includes(pattern.toLowerCase())) {
+                response = intent.responses[Math.floor(Math.random() * intent.responses.length)];
+            }
+        });
+    });
+
+    return response;
+}
+
+function sendMessage(intents) {
+    let champSaisie = document.getElementById('saisie');
+    let message = champSaisie.value.trim();
+
+    if (message !== "") {
+        let chatBox = document.querySelector('#chat-box');
+        let user_message = document.createElement('div');
+        user_message.textContent = message;
+        user_message.classList.add('user-mess');
+        chatBox.appendChild(user_message);
+
+        let reponseBot = processMessage(intents, message);
+
+        let bot_message = document.createElement('div');
+        bot_message.textContent = reponseBot;
+        bot_message.classList.add('bot-mess');
+        chatBox.appendChild(bot_message);
+
+        champSaisie.value = "";
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+}
