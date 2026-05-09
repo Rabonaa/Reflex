@@ -56,5 +56,4 @@ function initForms(){
         });
     });
 }
-
 initForms();
