@@ -1,5 +1,3 @@
-
-
 function validForm(formulaire){
     let complet = true;
     let champsRequis = formulaire.querySelectorAll('[required]');
@@ -57,3 +55,5 @@ function initForms(){
     });
 }
 initForms();
+
+
