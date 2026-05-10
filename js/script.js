@@ -124,3 +124,84 @@ function sendMessage(intents) {
         chatBox.scrollTop = chatBox.scrollHeight;
     }
 }
+
+function showChatBot(){
+    let chatButton = document.getElementById('discuter');
+    if(!chatButton){
+        return;
+    }
+    chatButton.addEventListener('click', () =>{
+       let chatBot = document.getElementById('chat-section');
+            chatBot.style.display = 'flex';
+            chatButton.disabled = true;
+            chatButton.style.display = 'none';
+    });
+}
+
+showChatBot();
+
+function ReactionTimeStart(){
+    let rectangle = document.getElementById('reaction-box');
+    if(!rectangle){
+        return;
+    }
+    let checked = false;
+    let dateDebut = null;
+    let attempts = 0;
+    let tempsTot = 0;
+    let timeOut = null;
+
+    function start(){
+        checked = false;
+        rectangle.style.backgroundColor = '#ff0921';
+        rectangle.style.color = 'white';
+        rectangle.style.fontSize = '40px';
+        rectangle.innerText = "Attendez le vert...";
+        let randomNum = Math.floor(Math.random() * 7001);
+             timeOut = setTimeout(()=>{
+                dateDebut = Date.now();
+                checked = true;
+                rectangle.innerText = "Cliquez !";
+                rectangle.style.backgroundColor = '#01d758';
+            }, randomNum);
+    }
+
+    function handleClick(){
+        if(checked) {
+            attempts++;
+            let tempsReaction = Date.now() - dateDebut;
+            tempsTot += tempsReaction;
+            rectangle.innerText = "Temps de réaction :\n" + tempsReaction + " ms";
+
+
+            if (attempts >= 5) {
+                clearTimeout(timeOut);
+                let moyenne = Math.round(tempsTot / 5);
+                rectangle.removeEventListener('click', handleClick);
+                rectangle.innerText = "Tentative " + attempts + "\n Temps de réaction :" + tempsReaction + "ms"
+                setTimeout(()=>{
+                    rectangle.style.backgroundColor = '#e7e4fa';
+                    rectangle.style.color = 'black';
+                    rectangle.innerText = "Temps de réaction moyen :\n" + Math.round(tempsTot/5) + "ms";
+                    let replayButton = document.createElement('button');
+                    replayButton.classList.add('replay-button');
+                    replayButton.innerText = 'Rejouer';
+                    rectangle.appendChild(replayButton);
+                    replayButton.addEventListener('click', () =>{setTimeout(ReactionTimeStart, 200)});
+                }, 1500);
+            } else {
+                rectangle.innerText = "Tentative " + attempts + "\n Temps de réaction :" + tempsReaction + "ms"
+                setTimeout(start, 1500);
+            }
+        }
+        else {
+            clearTimeout(timeOut);
+            rectangle.innerText = "Trop tôt! Réessayez encore une fois.";
+            setTimeout(start, 1000);
+        }
+    }
+    rectangle.addEventListener('click', handleClick);
+    start();
+}
+
+

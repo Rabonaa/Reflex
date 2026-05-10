@@ -79,7 +79,7 @@ nav a.active::after {
 }
 
 #chat-section{
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     background-color: #ffffff;
@@ -264,3 +264,16 @@ tbody tr{
 .score, .instructions{
     display: none;
 }
+
+#reaction-box{
+    height: 300px;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.replay-button{
+    margin-top: 10px;
+    padding: 10px;
+}
+
+
