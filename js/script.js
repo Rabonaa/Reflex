@@ -176,8 +176,10 @@ function ReactionTimeStart(){
     let attempts = 0;
     let tempsTot = 0;
     let timeOut = null;
+    let termine = false;
 
     function start(){
+        if(termine) return;
         checked = false;
         rectangle.style.backgroundColor = '#ff0921';
         rectangle.style.color = 'white';
@@ -202,6 +204,7 @@ function ReactionTimeStart(){
 
 
             if (attempts >= 5) {
+                termine = true;
                 clearTimeout(timeOut);
                 let moyenne = Math.round(tempsTot / 5);
                 rectangle.removeEventListener('click', handleClick);
@@ -286,12 +289,6 @@ if (document.readyState === 'loading') {
     startForm();
 }
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', startForm);
-} else {
-    startForm();
-}
-
 function initAimTest() {
     let aimBox = document.getElementById('aim-box');
     let startBtn = document.getElementById('start-aim');
@@ -362,7 +359,7 @@ function initAimTest() {
         if (!messageElement) {
             messageElement = document.createElement('div');
             messageElement.id = 'aim-message';
-            messageElement.style.color = 'white';
+            messageElement.style.color = 'black';
             messageElement.style.fontSize = '30px';
             messageElement.style.position = 'absolute';
             messageElement.style.top = '40%';
