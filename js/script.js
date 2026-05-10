@@ -25,6 +25,27 @@ function initForms(){
             e.preventDefault();
 
             if(validForm(form)){
+                let donnees = {};
+                let genre = form.querySelector('#genre');
+                if(genre){ donnees.genre = genre.value;}
+
+                let nom = form.querySelector('#nom');
+                if(nom){ donnees.nom = nom.value;}
+
+                let prenom = form.querySelector('#prenom');
+                if(prenom){ donnees.prenom = prenom.value;}
+
+                let date = form.querySelector('#date');
+                if(date){ donnees.date = date.value;}
+
+                let mail = form.querySelector('#mail');
+                if(mail){ donnees.mail = mail.value;}
+
+                let device = form.querySelector('#device');
+                if(device){ donnees.device = device.value;}
+
+                localStorage.setItem('utilisateur', JSON.stringify(donnees));
+
                 let fieldset = document.querySelector('fieldset');
                 if(fieldset){
                     fieldset.disabled = true;
@@ -54,7 +75,6 @@ function initForms(){
         });
     });
 }
-initForms();
 
 function fetchJSON(url) {
     fetch(url)
@@ -76,17 +96,23 @@ function fetchJSON(url) {
         });
 }
 
-document.getElementById('envoi_chat').addEventListener('click', function(event){
-    event.preventDefault();
-    fetchJSON('../json/intents.json');
-});
+let envoiChat = document.getElementById('envoi_chat');
+if(envoiChat){
+    envoiChat.addEventListener('click', function(event){
+        event.preventDefault();
+        fetchJSON('../json/intents.json');
+    });
+}
 
-document.getElementById('saisie').addEventListener('keydown', function (e){
-    if(e.key === 'Enter'){
-        e.preventDefault();
-        document.getElementById('envoi_chat').click();
-    }
-});
+let saisie = document.getElementById('saisie');
+if(saisie){
+    saisie.addEventListener('keydown', function(e){
+        if(e.key === 'Enter'){
+            e.preventDefault();
+            document.getElementById('envoi_chat').click();
+        }
+    });
+}
 
 function processMessage(intents, message) {
     let response = "Je suis désolé, je ne suis pas sûr de comprendre.";
@@ -131,10 +157,10 @@ function showChatBot(){
         return;
     }
     chatButton.addEventListener('click', () =>{
-       let chatBot = document.getElementById('chat-section');
-            chatBot.style.display = 'flex';
-            chatButton.disabled = true;
-            chatButton.style.display = 'none';
+        let chatBot = document.getElementById('chat-section');
+        chatBot.style.display = 'flex';
+        chatButton.disabled = true;
+        chatButton.style.display = 'none';
     });
 }
 
@@ -158,12 +184,12 @@ function ReactionTimeStart(){
         rectangle.style.fontSize = '40px';
         rectangle.innerText = "Attendez le vert...";
         let randomNum = Math.floor(Math.random() * 7001);
-             timeOut = setTimeout(()=>{
-                dateDebut = Date.now();
-                checked = true;
-                rectangle.innerText = "Cliquez !";
-                rectangle.style.backgroundColor = '#01d758';
-            }, randomNum);
+        timeOut = setTimeout(()=>{
+            dateDebut = Date.now();
+            checked = true;
+            rectangle.innerText = "Cliquez !";
+            rectangle.style.backgroundColor = '#01d758';
+        }, randomNum);
     }
 
     function handleClick(){
@@ -207,4 +233,50 @@ function ReactionTimeStart(){
 }
 
 
+function chargerForm(){
+    let data = localStorage.getItem('utilisateur');
+    if(!data){
+        return;
+    }
+    let user = JSON.parse(data);
 
+    let genre = document.getElementById('genre');
+    if(genre) genre.value = user.genre;
+
+    let nom = document.getElementById('nom');
+    if(nom) nom.value = user.nom;
+
+    let prenom = document.getElementById('prenom');
+    if(prenom) prenom.value = user.prenom;
+
+    let date = document.getElementById('date');
+    if(date) date.value = user.date;
+
+    let mail = document.getElementById('mail');
+    if(mail) mail.value = user.mail;
+
+    let device = document.getElementById('device');
+    if(device) device.value = user.device;
+
+    let form = document.querySelector('.formulaire');
+    let reactionBox = document.querySelector('#reaction-box');
+    let aimBox = document.querySelector('#aim-box');
+    if (form && (reactionBox || aimBox)) {
+        form.style.display = 'none';
+        if (reactionBox) reactionBox.style.display = 'flex';
+        if (aimBox) aimBox.style.display = 'flex';
+        let merci = document.querySelector('.post-form');
+        if (merci) merci.style.display = 'flex';
+    }
+}
+
+function startForm() {
+    initForms();
+    chargerForm();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startForm);
+} else {
+    startForm();
+}
