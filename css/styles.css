@@ -288,3 +288,43 @@ tbody tr{
     justify-content: space-around;
 }
 
+#aim-box {
+    display: none;
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+    background-color: #e7e4fa;
+    overflow: hidden;
+    margin: 20px auto;
+}
+
+#start-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 10;
+    text-align: center;
+    width: 100%;
+}
+
+#start-aim {
+    margin-top: 15px;
+}
+
+#target {
+    display: none;
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-image: url('../assets/img/cible.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    cursor: crosshair;
+    border-radius: 50%;
+}
+

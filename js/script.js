@@ -194,6 +194,7 @@ function ReactionTimeStart(){
 
     function handleClick(){
         if(checked) {
+            checked = false;
             attempts++;
             let tempsReaction = Date.now() - dateDebut;
             tempsTot += tempsReaction;
@@ -273,6 +274,10 @@ function chargerForm(){
 function startForm() {
     initForms();
     chargerForm();
+    if (typeof initContactRetour === 'function') {
+        initContactRetour();
+    }
+    initAimTest();
 }
 
 if (document.readyState === 'loading') {
@@ -280,3 +285,112 @@ if (document.readyState === 'loading') {
 } else {
     startForm();
 }
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startForm);
+} else {
+    startForm();
+}
+
+function initAimTest() {
+    let aimBox = document.getElementById('aim-box');
+    let startBtn = document.getElementById('start-aim');
+    let target = document.getElementById('target');
+
+    if (!aimBox || !startBtn || !target) return;
+
+    let totalTime = 0;
+    let targetCount = 0;
+    const MAX_TARGETS = 10;
+    let timeAppeared;
+
+    function startGame() {
+        let startScreen = document.getElementById('start-screen');
+        if (startScreen) startScreen.style.display = 'none';
+
+        let oldMessage = document.getElementById('aim-message');
+        if(oldMessage) oldMessage.style.display = 'none';
+
+        let oldReplayBtn = document.getElementById('replay-aim-btn');
+        if(oldReplayBtn) oldReplayBtn.style.display = 'none';
+
+        aimBox.style.display = 'block';
+
+        totalTime = 0;
+        targetCount = 0;
+        showNextTarget();
+    }
+
+    function showNextTarget() {
+        let boxWidth = aimBox.clientWidth;
+        let boxHeight = aimBox.clientHeight;
+        let targetSize = target.clientWidth || 40;
+
+        let maxX = boxWidth - targetSize;
+        let maxY = boxHeight - targetSize;
+
+        let randomX = Math.floor(Math.random() * maxX);
+        let randomY = Math.floor(Math.random() * maxY);
+
+        target.style.left = randomX + 'px';
+        target.style.top = randomY + 'px';
+        target.style.display = 'block';
+
+        timeAppeared = Date.now();
+    }
+
+    target.addEventListener('mousedown', () => {
+        let timeClicked = Date.now();
+        let reactionTime = timeClicked - timeAppeared;
+
+        totalTime += reactionTime;
+        targetCount++;
+
+        target.style.display = 'none';
+
+        if (targetCount < MAX_TARGETS) {
+            showNextTarget();
+        } else {
+            endGame();
+        }
+    });
+
+    function endGame() {
+        let averageTime = Math.round(totalTime / MAX_TARGETS);
+
+        let messageElement = document.getElementById('aim-message');
+        if (!messageElement) {
+            messageElement = document.createElement('div');
+            messageElement.id = 'aim-message';
+            messageElement.style.color = 'white';
+            messageElement.style.fontSize = '30px';
+            messageElement.style.position = 'absolute';
+            messageElement.style.top = '40%';
+            messageElement.style.left = '50%';
+            messageElement.style.transform = 'translate(-50%, -50%)';
+            messageElement.style.textAlign = 'center';
+            aimBox.appendChild(messageElement);
+        }
+        messageElement.innerText = "Temps moyen :\n" + averageTime + " ms";
+        messageElement.style.display = 'block';
+
+        let replayBtn = document.getElementById('replay-aim-btn');
+        if (!replayBtn) {
+            replayBtn = document.createElement('button');
+            replayBtn.id = 'replay-aim-btn';
+            replayBtn.className = 'bouton';
+            replayBtn.innerText = 'Rejouer';
+            replayBtn.style.position = 'absolute';
+            replayBtn.style.top = '60%';
+            replayBtn.style.left = '50%';
+            replayBtn.style.transform = 'translate(-50%, -50%)';
+            aimBox.appendChild(replayBtn);
+
+            replayBtn.addEventListener('click', startGame);
+        }
+        replayBtn.style.display = 'block';
+    }
+
+    startBtn.addEventListener('click', startGame);
+}
+
