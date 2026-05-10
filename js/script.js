@@ -42,12 +42,12 @@ function initForms(){
 
                     let merci = document.querySelector('.post-form');
                     if(merci){
-                        merci.style.display = 'block';
+                        merci.style.display = 'flex';
                     }
 
-                    let score = document.querySelector('.score');
-                    if(score){
-                        score.style.display = 'block';
+                    let reactionBox = document.querySelector('#reaction-box');
+                    if(reactionBox){
+                        reactionBox.style.display = 'block';
                     }
                 }, 2000);
             }
@@ -184,8 +184,10 @@ function ReactionTimeStart(){
                     rectangle.style.color = 'black';
                     rectangle.innerText = "Temps de réaction moyen :\n" + Math.round(tempsTot/5) + "ms";
                     let replayButton = document.createElement('button');
+                    let espace = document.createElement('br');
                     replayButton.classList.add('replay-button');
                     replayButton.innerText = 'Rejouer';
+                    rectangle.appendChild(espace);
                     rectangle.appendChild(replayButton);
                     replayButton.addEventListener('click', () =>{setTimeout(ReactionTimeStart, 200)});
                 }, 1500);
@@ -203,5 +205,6 @@ function ReactionTimeStart(){
     rectangle.addEventListener('click', handleClick);
     start();
 }
+
 
 
